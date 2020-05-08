@@ -1,0 +1,29 @@
+<div>
+  <h1>Bills of <b>{{data.customerName}}</b></h1>
+
+  <div class="container">
+    <label>Total value added <input type="number" matInput [(ngModel)]="willPay" (change)="addPayedValue()" min="0"> Payed: <b>{{data.willPay}}</b> remains: <b>{{willPay - count}}</b></label>
+    <div class="table">
+      <table >
+        <tr>
+          <th>Bill number</th>
+          <th>Cost</th>
+          <th>Payed</th>
+          <th>Remainder</th>
+          <th>Valued added</th>
+          <th>Add</th>
+        </tr>
+        <tr *ngFor="let item of data.bills; let i = index">
+          <td><b> {{item.bill_number}} </b></td>
+          <td> <b> {{item.cost}} </b></td>
+          <td> <b> {{item.payed}} </b></td>
+          <td> <b> {{item.remainder}} </b></td>
+          <td> <b> {{item.add}} </b></td>
+          <td> <input type="number"  [disabled]="!data.willPay" [ngModel]="item.add" (change)="validateAddedValue(i,$event)" min="0"> </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <!-- [mat-dialog-close]="data" -->
+  <button mat-button  [disabled]="willPay < count" cdkFocusInitial class="editBTN" (click)="submit()"> Submit</button>
+</div>

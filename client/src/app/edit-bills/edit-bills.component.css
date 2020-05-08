@@ -1,0 +1,32 @@
+h1{
+  text-align: center;
+}
+
+.container{
+  margin: 2%;
+  padding: 2%;
+  height: 420px;
+}
+
+input {
+  padding: 8px 4px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+table{
+  text-align: center;
+}
+
+.editBTN{
+  position: relative;
+  margin-left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.table{
+  height: 400px;
+  overflow: auto;
+}

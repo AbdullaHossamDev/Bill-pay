@@ -1,0 +1,34 @@
+input {
+  padding: 8px 4px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+h1{
+  text-align: center;
+}
+
+.leftBTN{
+  position: relative;
+    left: 10%;
+    width: 30%;
+}
+
+.rightBTN{
+  position: relative;
+  left: 33%;
+  width: 30%;
+}
+
+
+.container{
+  overflow: auto;
+}
+
+.table{
+  background-color: aliceblue;
+  height: 250px;
+  overflow: auto;
+}

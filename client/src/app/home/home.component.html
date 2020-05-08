@@ -1,0 +1,33 @@
+<app-top-bar [auth]='true'></app-top-bar>
+
+
+<div class="rigthDiv" *ngIf="showedCustomers">
+  <h2>Customers</h2>
+  <div>
+    <input type="text" [(ngModel)]="searchInput" placeholder="Customer name" (ngModelChange)="filterList()">
+  </div>
+  <div class="containerRight">
+    <div *ngFor="let item of showedCustomers" class="item">
+      <button mat-stroked-button color="primary" (click)="getBills(item)"> {{item.name}}</button>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="leftDiv">
+  <div class="headLine">
+    <h2 style="margin-left: 39%;">Bills<p *ngIf="currentCustomer">Of {{currentCustomer.name}}</p></h2>
+    <mat-slide-toggle [(ngModel)]="notPayed" (click)="changePayed()">Not Payed</mat-slide-toggle>
+  </div>
+  <form #form="ngForm" (ngSubmit)="editBills(form.value)" class="containerLeft">
+    <div *ngFor="let item of bills" class="item">
+      <label> <input type="checkbox" (change)="onChange(item.id, $event.target.checked)" *ngIf="notPayed">
+        {{item.bill_number}} </label>
+    </div>
+    <button mat-raised-button color="primary" type="submit" [disabled]="choosedBills.length == 0" expand="block"
+      class="editBTN">Edit</button>
+  </form>
+  <button mat-raised-button color="primary" expand="block"
+      class="addBTN" [disabled]="!currentCustomer" (click)="addBill()">Add bill</button>
+</div>
